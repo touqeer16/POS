@@ -14,7 +14,6 @@ use App\Utils\RestaurantUtil;
 use App\Utils\TransactionUtil;
 use App\Utils\Util;
 use App\VariationLocationDetails;
-use Carbon;
 use Datatables;
 use DB;
 use Illuminate\Http\Request;
@@ -111,7 +110,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return "hello";
+
         $business_id = request()->session()->get('user.business_id');
         $termsConditionNotDone = TermsConditions::where('business_id', $business_id)
             ->where('status', 1)

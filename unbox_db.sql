@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 01, 2024 at 09:21 AM
+-- Generation Time: Jan 01, 2024 at 11:11 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -4402,6 +4402,32 @@ INSERT INTO `tax_rates` (`id`, `business_id`, `name`, `amount`, `is_tax_group`, 
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `terms_conditions`
+--
+
+CREATE TABLE `terms_conditions` (
+  `id` int(11) NOT NULL,
+  `business_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `ip` varchar(255) NOT NULL,
+  `clientIP` varchar(255) NOT NULL,
+  `created_date` datetime NOT NULL,
+  `otp` int(11) NOT NULL,
+  `status` int(11) NOT NULL DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `terms_conditions`
+--
+
+INSERT INTO `terms_conditions` (`id`, `business_id`, `user_id`, `ip`, `clientIP`, `created_date`, `otp`, `status`) VALUES
+(42, 4, 57, '31.166.2.90', '31.166.2.90', '2023-11-15 14:54:42', 755396, 1),
+(43, 1, 1, '178.73.90.5', '178.73.90.5', '2023-11-27 10:27:45', 150996, 1),
+(44, 2, 2, '127.0.0.1', '127.0.0.1', '2024-01-01 13:10:55', 641673, 1);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `transactions`
 --
 
@@ -5600,6 +5626,12 @@ ALTER TABLE `tax_rates`
   ADD KEY `tax_rates_created_by_foreign` (`created_by`);
 
 --
+-- Indexes for table `terms_conditions`
+--
+ALTER TABLE `terms_conditions`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `transactions`
 --
 ALTER TABLE `transactions`
@@ -6028,6 +6060,12 @@ ALTER TABLE `system`
 --
 ALTER TABLE `tax_rates`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `terms_conditions`
+--
+ALTER TABLE `terms_conditions`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
 
 --
 -- AUTO_INCREMENT for table `transactions`

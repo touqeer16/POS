@@ -4,13 +4,12 @@ namespace Modules\Superadmin\Providers;
 
 use App\System;
 use Illuminate\Console\Scheduling\Schedule;
-use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Database\Eloquent\Factory;
+use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 use Modules\Superadmin\Entities\Subscription;
 use Modules\Superadmin\Entities\SuperadminFrontendPage;
-use Illuminate\Support\Facades\Config;
-
 
 class SuperadminServiceProvider extends ServiceProvider
 {
@@ -114,7 +113,7 @@ class SuperadminServiceProvider extends ServiceProvider
         $sourcePath = __DIR__ . '/../Resources/views';
 
         $this->publishes([
-            $sourcePath => $viewPath
+            $sourcePath => $viewPath,
         ], 'views');
 
         $this->loadViewsFrom(array_merge(array_map(function ($path) {
@@ -168,7 +167,7 @@ class SuperadminServiceProvider extends ServiceProvider
     protected function registerCommands()
     {
         $this->commands([
-            \Modules\Superadmin\Console\SubscriptionExpiryAlert::class
+            \Modules\Superadmin\Console\SubscriptionExpiryAlert::class,
         ]);
     }
 }
