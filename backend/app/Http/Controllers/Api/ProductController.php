@@ -84,7 +84,7 @@ class ProductController extends Controller
     {
 
         $business_id = request()->session()->get('user.business_id');
-        //return response(['business_locations' => $business_id], '200');
+        //return response(['userid' => auth()->user()->id], '200');
 
         //$business_locations = BusinessLocation::forDropdown($business_id, false, true);
         //$bl_attributes = $business_locations['attributes'];
@@ -104,7 +104,7 @@ class ProductController extends Controller
             auth()->user()->id)->where('status', 'open')->where('closed_at', '=', null)->first();
 
         $location_id = $selectedBusinessLocation->location_id;
-        // return response(['business_locations' => $selectedBusinessLocation], '200');
+        //return response(['business_locations' => $selectedBusinessLocation], '200');
         //$query = BusinessLocation::where('business_id', $business_id)->Active();
 
         $query = BusinessLocation::where('id', $location_id)->Active();

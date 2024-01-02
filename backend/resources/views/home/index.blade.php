@@ -5,7 +5,6 @@
 
 
 
-
 <!-- Content Header (Page header) -->
 <section class="content-header content-header-custom">
     <h1>{{ __('home.welcome_message', ['name' => Session::get('user.first_name')]) }}

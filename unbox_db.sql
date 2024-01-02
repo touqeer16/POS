@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 01, 2024 at 11:11 AM
+-- Generation Time: Jan 01, 2024 at 02:06 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -1041,6 +1041,45 @@ INSERT INTO `business_locations` (`id`, `business_id`, `location_id`, `name`, `l
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `call_number_schemes`
+--
+
+CREATE TABLE `call_number_schemes` (
+  `id` int(11) NOT NULL,
+  `business_id` int(10) UNSIGNED DEFAULT NULL,
+  `location_id` int(10) UNSIGNED DEFAULT NULL,
+  `user_id` int(11) DEFAULT NULL,
+  `start_number` int(11) NOT NULL DEFAULT 1,
+  `call_number_count` int(11) DEFAULT 0,
+  `total_digits` int(11) DEFAULT 3,
+  `updated_at` datetime DEFAULT current_timestamp(),
+  `created_at` datetime DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `call_number_schemes`
+--
+
+INSERT INTO `call_number_schemes` (`id`, `business_id`, `location_id`, `user_id`, `start_number`, `call_number_count`, `total_digits`, `updated_at`, `created_at`) VALUES
+(45, 4, 25, 57, 1, 169, 3, '2023-12-19 03:45:44', '2023-03-06 09:57:09'),
+(46, 4, 20, 56, 1, 0, 3, '2023-12-19 03:59:00', '2023-03-06 10:00:16'),
+(47, 4, 21, 55, 1, 165, 3, '2023-12-19 03:19:31', '2023-03-06 11:11:38'),
+(48, 4, 15, 50, 1, 210, 3, '2023-12-19 03:56:46', '2023-03-06 11:44:17'),
+(49, 4, 14, 48, 1, 215, 3, '2023-12-19 03:48:38', '2023-03-06 11:47:29'),
+(50, 4, 17, 52, 1, 13, 3, '2023-12-14 13:35:35', '2023-03-06 12:19:36'),
+(51, 4, 24, 49, 1, 108, 3, '2023-12-19 04:08:29', '2023-03-06 14:03:11'),
+(52, 4, 19, 17, 1, 110, 3, '2023-12-19 03:39:18', '2023-03-06 14:04:00'),
+(53, 4, 22, 53, 1, 1, 3, '2023-12-19 05:13:40', '2023-03-06 14:26:57'),
+(54, 4, 18, 47, 1, 0, 3, '2023-12-19 03:45:56', '2023-03-06 18:52:22'),
+(55, 4, 16, 57, 1, 0, 3, '2023-12-19 04:09:19', '2023-03-07 11:13:01'),
+(59, 4, 27, 60, 1, 94, 3, '2023-12-19 04:09:35', '2023-11-07 15:43:32'),
+(60, 2, 3, 2, 1, 0, 3, '2024-01-01 15:31:03', '2024-01-01 15:30:45'),
+(61, 2, 7, 2, 1, 0, 3, '2024-01-01 15:44:13', '2024-01-01 15:44:13'),
+(62, 2, 2, 2, 1, 0, 3, '2024-01-01 15:54:21', '2024-01-01 15:54:21');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `cash_registers`
 --
 
@@ -1084,11 +1123,11 @@ INSERT INTO `cash_registers` (`id`, `business_id`, `location_id`, `user_id`, `st
 (18, 2, 2, 2, 'close', '2021-07-27 16:16:52', 70.1500, 1, 0, NULL, '2021-03-25 18:23:00', '2021-07-27 20:16:52'),
 (19, 3, 4, 4, 'close', '2021-03-25 21:45:06', 0.0000, 0, 0, NULL, '2021-03-26 01:44:00', '2021-03-26 01:45:06'),
 (20, 3, 4, 4, 'close', '2021-03-25 21:47:17', 0.0000, 0, 0, NULL, '2021-03-26 01:46:00', '2021-03-26 01:47:17'),
-(21, 3, NULL, 4, 'open', NULL, 0.0000, 0, 0, NULL, '2021-04-28 06:29:00', '2021-04-28 06:29:36'),
+(21, 3, NULL, 4, 'close', NULL, 0.0000, 0, 0, NULL, '2021-04-28 06:29:00', '2021-04-28 06:29:36'),
 (22, 2, 2, 3, 'close', '2021-05-13 20:12:14', 111.0000, 0, 0, NULL, '2021-05-14 00:12:00', '2021-05-14 00:12:14'),
 (23, 2, 3, 3, 'close', '2021-05-13 20:12:56', 138.0000, 0, 0, NULL, '2021-05-14 00:12:00', '2021-05-14 00:12:56'),
 (24, 2, NULL, 3, 'close', '2021-05-13 20:14:36', 66.0000, 0, 0, NULL, '2021-05-14 00:14:00', '2021-05-14 00:14:36'),
-(25, 2, 2, 3, 'open', NULL, 0.0000, 0, 0, NULL, '2021-05-17 21:11:00', '2021-05-20 00:52:46'),
+(25, 2, 2, 3, 'close', '2024-01-01 15:00:18', 111.0000, 0, 0, NULL, '2021-05-17 21:11:00', '2024-01-01 12:00:18'),
 (26, 2, NULL, 2, 'close', '2021-07-28 09:09:46', 10000.0000, 0, 0, NULL, '2021-07-28 11:17:00', '2021-07-28 13:09:46'),
 (27, 2, NULL, 2, 'close', '2021-07-28 09:10:16', 10000.0000, 0, 0, NULL, '2021-07-28 13:10:00', '2021-07-28 13:10:16'),
 (28, 2, NULL, 2, 'close', '2021-07-28 15:33:38', 10000.0000, 0, 0, NULL, '2021-07-28 16:12:00', '2021-07-28 19:33:38'),
@@ -1123,13 +1162,16 @@ INSERT INTO `cash_registers` (`id`, `business_id`, `location_id`, `user_id`, `st
 (57, 2, NULL, 2, 'close', '2021-09-10 12:48:43', 100.0000, 0, 0, NULL, '2021-09-10 16:12:00', '2021-09-10 16:48:43'),
 (58, 2, 3, 2, 'close', '2021-09-11 07:29:55', 790.9000, 0, 0, NULL, '2021-09-10 16:49:00', '2021-09-11 11:29:55'),
 (59, 2, 2, 2, 'close', '2022-05-19 15:01:02', 75.0000, 0, 0, NULL, '2021-09-11 11:31:00', '2022-05-19 12:01:02'),
-(60, 2, NULL, 7, 'open', NULL, 0.0000, 0, 0, NULL, '2021-09-16 14:25:00', '2021-09-16 14:25:11'),
+(60, 2, NULL, 7, 'close', '2024-01-01 15:00:46', 1000.0000, 0, 0, NULL, '2021-09-16 14:25:00', '2024-01-01 12:00:46'),
 (61, 2, 11, 13, 'close', '2021-09-22 00:44:12', 0.0000, 0, 0, NULL, '2021-09-21 21:41:00', '2021-09-21 21:44:12'),
 (62, 2, 11, 13, 'close', '2021-09-22 00:47:22', 0.0000, 0, 0, NULL, '2021-09-21 21:46:00', '2021-09-21 21:47:22'),
-(63, 2, 6, 8, 'open', NULL, 0.0000, 0, 0, NULL, '2021-09-30 11:51:00', '2021-09-30 11:51:17'),
-(64, 2, 7, 9, 'open', NULL, 0.0000, 0, 0, NULL, '2021-09-30 11:53:00', '2021-09-30 11:53:34'),
-(65, 2, 8, 10, 'open', NULL, 0.0000, 0, 0, NULL, '2021-09-30 11:55:00', '2021-09-30 11:55:04'),
-(66, 2, 2, 2, 'open', NULL, 0.0000, 0, 0, NULL, '2022-05-19 13:41:00', '2022-05-19 13:41:23');
+(63, 2, 6, 8, 'close', '2024-01-01 15:00:38', 0.0000, 0, 0, NULL, '2021-09-30 11:51:00', '2024-01-01 12:00:38'),
+(64, 2, 7, 9, 'close', '2024-01-01 15:00:32', 0.0000, 0, 0, NULL, '2021-09-30 11:53:00', '2024-01-01 12:00:32'),
+(65, 2, 8, 10, 'close', '2024-01-01 15:00:26', 0.0000, 0, 0, NULL, '2021-09-30 11:55:00', '2024-01-01 12:00:26'),
+(66, 2, 2, 2, 'close', '2024-01-01 15:00:08', 893.0000, 0, 0, NULL, '2022-05-19 13:41:00', '2024-01-01 12:00:08'),
+(67, 2, 3, 2, 'close', '2024-01-01 15:44:00', 0.0000, 0, 0, NULL, '2024-01-01 12:31:00', '2024-01-01 12:44:00'),
+(68, 2, 7, 2, 'close', '2024-01-01 15:54:10', 0.0000, 0, 0, NULL, '2024-01-01 12:44:00', '2024-01-01 12:54:10'),
+(69, 2, 2, 2, 'open', NULL, 0.0000, 0, 0, NULL, '2024-01-01 12:54:00', '2024-01-01 12:54:21');
 
 -- --------------------------------------------------------
 
@@ -1277,6 +1319,226 @@ CREATE TABLE `categorizables` (
   `categorizable_type` varchar(191) NOT NULL,
   `categorizable_id` bigint(20) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `category_locations`
+--
+
+CREATE TABLE `category_locations` (
+  `catlocID` int(11) NOT NULL,
+  `category_id` int(11) NOT NULL,
+  `location_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `category_locations`
+--
+
+INSERT INTO `category_locations` (`catlocID`, `category_id`, `location_id`) VALUES
+(196, 48, 25),
+(197, 49, 25),
+(230, 57, 14),
+(231, 57, 15),
+(232, 57, 16),
+(233, 57, 17),
+(234, 57, 18),
+(235, 57, 19),
+(236, 57, 20),
+(237, 57, 21),
+(238, 57, 22),
+(239, 57, 24),
+(240, 57, 25),
+(247, 31, 14),
+(248, 31, 15),
+(249, 31, 16),
+(250, 31, 17),
+(251, 31, 18),
+(252, 31, 19),
+(253, 31, 20),
+(254, 31, 21),
+(255, 31, 22),
+(256, 31, 24),
+(257, 31, 25),
+(258, 31, 27),
+(259, 32, 14),
+(260, 32, 15),
+(261, 32, 16),
+(262, 32, 17),
+(263, 32, 18),
+(264, 32, 19),
+(265, 32, 20),
+(266, 32, 21),
+(267, 32, 22),
+(268, 32, 24),
+(269, 32, 25),
+(270, 32, 27),
+(271, 40, 14),
+(272, 40, 15),
+(273, 40, 16),
+(274, 40, 17),
+(275, 40, 18),
+(276, 40, 19),
+(277, 40, 20),
+(278, 40, 21),
+(279, 40, 22),
+(280, 40, 24),
+(281, 40, 25),
+(282, 40, 27),
+(283, 34, 14),
+(284, 34, 15),
+(285, 34, 16),
+(286, 34, 17),
+(287, 34, 18),
+(288, 34, 19),
+(289, 34, 20),
+(290, 34, 21),
+(291, 34, 22),
+(292, 34, 24),
+(293, 34, 25),
+(294, 34, 27),
+(295, 35, 14),
+(296, 35, 15),
+(297, 35, 16),
+(298, 35, 17),
+(299, 35, 18),
+(300, 35, 19),
+(301, 35, 20),
+(302, 35, 21),
+(303, 35, 22),
+(304, 35, 24),
+(305, 35, 25),
+(306, 35, 27),
+(307, 36, 14),
+(308, 36, 15),
+(309, 36, 16),
+(310, 36, 17),
+(311, 36, 18),
+(312, 36, 19),
+(313, 36, 20),
+(314, 36, 21),
+(315, 36, 22),
+(316, 36, 24),
+(317, 36, 25),
+(318, 36, 27),
+(319, 44, 14),
+(320, 44, 15),
+(321, 44, 16),
+(322, 44, 17),
+(323, 44, 18),
+(324, 44, 19),
+(325, 44, 20),
+(326, 44, 21),
+(327, 44, 22),
+(328, 44, 24),
+(329, 44, 25),
+(330, 44, 27),
+(331, 42, 14),
+(332, 42, 15),
+(333, 42, 16),
+(334, 42, 17),
+(335, 42, 18),
+(336, 42, 19),
+(337, 42, 20),
+(338, 42, 21),
+(339, 42, 22),
+(340, 42, 24),
+(341, 42, 25),
+(342, 42, 27),
+(343, 37, 14),
+(344, 37, 15),
+(345, 37, 16),
+(346, 37, 17),
+(347, 37, 18),
+(348, 37, 19),
+(349, 37, 20),
+(350, 37, 21),
+(351, 37, 22),
+(352, 37, 24),
+(353, 37, 25),
+(354, 37, 27),
+(355, 41, 14),
+(356, 41, 15),
+(357, 41, 16),
+(358, 41, 17),
+(359, 41, 18),
+(360, 41, 19),
+(361, 41, 20),
+(362, 41, 21),
+(363, 41, 22),
+(364, 41, 24),
+(365, 41, 25),
+(366, 41, 27),
+(367, 38, 14),
+(368, 38, 15),
+(369, 38, 16),
+(370, 38, 17),
+(371, 38, 18),
+(372, 38, 19),
+(373, 38, 20),
+(374, 38, 21),
+(375, 38, 22),
+(376, 38, 24),
+(377, 38, 25),
+(378, 38, 27),
+(379, 39, 14),
+(380, 39, 15),
+(381, 39, 16),
+(382, 39, 17),
+(383, 39, 18),
+(384, 39, 19),
+(385, 39, 20),
+(386, 39, 21),
+(387, 39, 22),
+(388, 39, 24),
+(389, 39, 25),
+(390, 39, 27),
+(391, 45, 14),
+(392, 45, 15),
+(393, 45, 16),
+(394, 45, 17),
+(395, 45, 18),
+(396, 45, 19),
+(397, 45, 20),
+(398, 45, 21),
+(399, 45, 22),
+(400, 45, 24),
+(401, 45, 25),
+(402, 45, 27),
+(403, 43, 14),
+(404, 43, 15),
+(405, 43, 16),
+(406, 43, 17),
+(407, 43, 18),
+(408, 43, 19),
+(409, 43, 20),
+(410, 43, 21),
+(411, 43, 22),
+(412, 43, 24),
+(413, 43, 25),
+(414, 43, 27),
+(415, 46, 14),
+(416, 46, 15),
+(417, 46, 16),
+(418, 46, 17),
+(419, 46, 18),
+(420, 46, 19),
+(421, 46, 20),
+(422, 46, 21),
+(423, 46, 22),
+(424, 46, 24),
+(425, 46, 25),
+(426, 46, 27),
+(427, 50, 20),
+(428, 50, 21),
+(429, 50, 22),
+(430, 50, 25),
+(431, 50, 27),
+(432, 47, 14),
+(433, 47, 18),
+(434, 47, 25),
+(435, 47, 27);
 
 -- --------------------------------------------------------
 
@@ -4804,8 +5066,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `user_type`, `surname`, `first_name`, `last_name`, `username`, `email`, `password`, `language`, `contact_no`, `address`, `remember_token`, `business_id`, `kitchen_station_id`, `max_sales_discount_percent`, `allow_login`, `status`, `is_cmmsn_agnt`, `cmmsn_percent`, `selected_contacts`, `dob`, `gender`, `marital_status`, `blood_group`, `contact_number`, `fb_link`, `twitter_link`, `social_media_1`, `social_media_2`, `permanent_address`, `current_address`, `guardian_name`, `custom_field_1`, `custom_field_2`, `custom_field_3`, `custom_field_4`, `bank_details`, `id_proof_name`, `id_proof_number`, `deleted_at`, `created_at`, `updated_at`) VALUES
-(1, 'user', 'Dr', 'Riyadh', 'Almakki', 'superadmin', NULL, '$2y$10$Txm6kb4w4Ym6fZJvUbwnYO1cLqMvs6qm4Poo.HlOoOuuPJSA2Pu4u', 'en', NULL, NULL, 'ltsAPskP45Ny1jIwES5OqivijKP3A5yeaFfZfsVqaCymrHxwz1YDk40eQDuD', 1, NULL, NULL, 1, 'active', 0, 0.00, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-02-09 23:56:23', '2021-02-09 23:56:23'),
-(2, 'user', 'السيد', 'أحمد', 'المكي', 'amakki', NULL, '$2y$10$hQHEcvcz/aHC6N280Qt8vOZ2R5srT5Y4KIkjXbBf9XxSoCpwAP3d6', 'en', NULL, NULL, 'yH15pMUdZABhtpFCpualjoCiYJosGcJHJ4oIFUNp569SiEySmEkKvzcae0EA', 2, NULL, NULL, 1, 'active', 0, 0.00, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '{\"account_holder_name\":null,\"account_number\":null,\"bank_name\":null,\"bank_code\":null,\"branch\":null,\"tax_payer_id\":null}', NULL, NULL, NULL, '2021-02-10 00:10:51', '2021-09-18 21:41:01'),
+(1, 'user', 'Dr', 'Riyadh', 'Almakki', 'superadmin', NULL, '$2y$10$hQHEcvcz/aHC6N280Qt8vOZ2R5srT5Y4KIkjXbBf9XxSoCpwAP3d6', 'en', NULL, NULL, 'biyr2BIfciVYisHbcOiNqTwrwyjZnNikZ6E9beHilWa5gVBXv7rg02VhAm2D', 1, NULL, NULL, 1, 'active', 0, 0.00, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-02-09 23:56:23', '2021-02-09 23:56:23'),
+(2, 'user', 'السيد', 'أحمد', 'المكي', 'amakki', NULL, '$2y$10$hQHEcvcz/aHC6N280Qt8vOZ2R5srT5Y4KIkjXbBf9XxSoCpwAP3d6', 'en', NULL, NULL, 'gd9Nyu71RJ7vtPEvd8kHRUPVhrLZ3avq1YIYyb1Ty6wb18LGSU7EYu1DQUqh', 2, NULL, NULL, 1, 'active', 0, 0.00, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '{\"account_holder_name\":null,\"account_number\":null,\"bank_name\":null,\"bank_code\":null,\"branch\":null,\"tax_payer_id\":null}', NULL, NULL, NULL, '2021-02-10 00:10:51', '2021-09-18 21:41:01'),
 (3, 'user', NULL, 'shawrmalak Cashier', NULL, 'cashier', 'info@sitebery.com', '$2y$10$wyBzG/oJQaGq/Q7G4DhHc.SsAF9MEiljxKkq0HJ0AiRKOm3.j1hum', 'en', NULL, NULL, 'xuutT7qCwBp07TkOUxIoujM9d1HfEldqACjzGPUgla4ggCMKhC5C5EB4U0OP', 2, 1, NULL, 1, 'active', 0, 0.00, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '{\"account_holder_name\":null,\"account_number\":null,\"bank_name\":null,\"bank_code\":null,\"branch\":null,\"tax_payer_id\":null}', NULL, NULL, NULL, '2021-02-14 09:38:50', '2021-09-18 21:42:20'),
 (4, 'user', NULL, 'asdasd', 'asd', 'astore', 'asevenf@yahoo.com', '$2y$10$6x9QCMPfw7lC.dZ2nIscHubYEQGehXDthURrPd.CRUq/haQHzXpx2', 'en', NULL, NULL, NULL, 3, NULL, NULL, 1, 'active', 0, 0.00, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '{\"account_holder_name\":null,\"account_number\":null,\"bank_name\":null,\"bank_code\":null,\"branch\":null,\"tax_payer_id\":null}', NULL, NULL, NULL, '2021-03-26 01:37:35', '2021-04-28 06:30:25'),
 (5, 'user', NULL, 'waiter1', NULL, 'waiter', 'a@a.com', '$2y$10$eHd7MUHs6TDEnN0pzcBsZOLbwrSZBL3n3qrxQ53DbvKnRfjy.BK2K', 'en', NULL, NULL, NULL, 2, 1, NULL, 1, 'active', 0, 0.00, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '{\"account_holder_name\":null,\"account_number\":null,\"bank_name\":null,\"bank_code\":null,\"branch\":null,\"tax_payer_id\":null}', NULL, NULL, NULL, '2021-06-10 01:23:02', '2021-09-18 21:43:20'),
@@ -5241,6 +5503,14 @@ ALTER TABLE `business_locations`
   ADD KEY `business_locations_invoice_layout_id_foreign` (`invoice_layout_id`);
 
 --
+-- Indexes for table `call_number_schemes`
+--
+ALTER TABLE `call_number_schemes`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `business_id` (`business_id`),
+  ADD KEY `location_id` (`location_id`);
+
+--
 -- Indexes for table `cash_registers`
 --
 ALTER TABLE `cash_registers`
@@ -5270,6 +5540,12 @@ ALTER TABLE `categories`
 --
 ALTER TABLE `categorizables`
   ADD KEY `categorizables_categorizable_type_categorizable_id_index` (`categorizable_type`,`categorizable_id`);
+
+--
+-- Indexes for table `category_locations`
+--
+ALTER TABLE `category_locations`
+  ADD PRIMARY KEY (`catlocID`);
 
 --
 -- Indexes for table `contacts`
@@ -5828,10 +6104,16 @@ ALTER TABLE `business_locations`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
+-- AUTO_INCREMENT for table `call_number_schemes`
+--
+ALTER TABLE `call_number_schemes`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=63;
+
+--
 -- AUTO_INCREMENT for table `cash_registers`
 --
 ALTER TABLE `cash_registers`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=67;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=70;
 
 --
 -- AUTO_INCREMENT for table `cash_register_transactions`
@@ -5844,6 +6126,12 @@ ALTER TABLE `cash_register_transactions`
 --
 ALTER TABLE `categories`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+
+--
+-- AUTO_INCREMENT for table `category_locations`
+--
+ALTER TABLE `category_locations`
+  MODIFY `catlocID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=436;
 
 --
 -- AUTO_INCREMENT for table `contacts`

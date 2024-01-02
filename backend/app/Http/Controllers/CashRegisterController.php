@@ -85,7 +85,9 @@ class CashRegisterController extends Controller
             $call_register = CashRegister::where('business_id', $business_id)->where('location_id', $location_id)->where('status', 'open')->first();
             /*  echo "<pre>";
             print_r($call_register);exit; */
+
             if (!empty($call_register)) {
+
                 /*  $call_Number_Scheme = CallNumberScheme::where('business_id', $business_id)->where('location_id', $location_id)->where('user_id', $user_id)->first(); */
                 $call_Number_Scheme = CallNumberScheme::where('business_id', $business_id)->where('location_id', $location_id)->first();
                 if (!empty($call_Number_Scheme)) {
@@ -96,7 +98,9 @@ class CashRegisterController extends Controller
                     CallNumberScheme::insert($data);
                 }
             } else {
+
                 $call_Number_Scheme = CallNumberScheme::where('business_id', $business_id)->where('location_id', $location_id)->first();
+
                 if (!empty($call_Number_Scheme)) {
                     CallNumberScheme::where('id', $call_Number_Scheme->id)->update(['call_number_count' => 0]);
                 } else {
@@ -125,9 +129,9 @@ class CashRegisterController extends Controller
         } catch (\Exception $e) {
             \Log::emergency("File:" . $e->getFile() . "Line:" . $e->getLine() . "Message:" . $e->getMessage());
         }
-        /*  return redirect("http://localhost:3000/"); */
+        return redirect("http://localhost:3000/");
 
-        return redirect()->route('pos.new');
+        /*   return redirect()->route('pos.new'); */
         //        return redirect()->action('SellPosController@create', ['sub_type' => $sub_type]);
     }
 
