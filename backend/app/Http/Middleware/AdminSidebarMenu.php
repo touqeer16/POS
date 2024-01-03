@@ -26,17 +26,17 @@ class AdminSidebarMenu
             $enabledMenuLink = !empty(session()->get('business.enabled_menu_link')) ? session()->get('business.enabled_menu_link') : [];
             $enable_brand = (session()->get('business.enable_brand') == 1) ? session()->get('business.enable_brand') : 0;
             $enabled_modules = !empty(session('business.enabled_modules')) ? session('business.enabled_modules') : [];
-            //dump($enabled_modules);
-            /*  dump($enabledMenuLink);
+            // dump($enabled_modules);
 
-            exit; */
-
-            /* $enabledMenuLink = ['supplier', 'print_labels', 'variations', 'purchases', 'stock_adjustment', 'stock_transfers', 'import_products', 'import_opening_stock',
-            'import_contacts', 'import_sales', 'list_sell_return', 'shipments', 'list_quotations', 'pos_sale', 'add_quotation',
-            'payment_accounts', 'backup', 'notification_templates', 'bookings', 'kitchen', 'orders', 'modules', 'service_staff_report', 'table_report', 'sales_representative', 'items_report', 'product_purchase_report',
-            'purchase_payment_report', 'stock_adjustment_report', 'lot_report', 'stock_expiry_report', 'stock_report', 'tax_report', 'getCustomerSuppliers',
-            'types_of_service', 'tables', 'receipt_printers', 'barcode_settings',
+           /*  $enabledMenuLink = ['supplier', 'print_labels', 'variations', 'purchases', 'stock_adjustment', 'stock_transfers', 'import_products', 'import_opening_stock',
+                'import_contacts', 'import_sales', 'list_sell_return', 'shipments', 'list_quotations', 'pos_sale', 'add_quotation',
+                'payment_accounts', 'backup', 'notification_templates', 'bookings', 'kitchen', 'orders', 'modules', 'service_staff_report', 'table_report', 'sales_representative', 'items_report', 'product_purchase_report',
+                'purchase_payment_report', 'stock_adjustment_report', 'lot_report', 'stock_expiry_report', 'stock_report', 'tax_report', 'getCustomerSuppliers',
+                'types_of_service', 'tables', 'receipt_printers', 'barcode_settings',
             ]; */
+            // dump($enabledMenuLink);
+
+            //exit;
 
             //Home
             $menu->url(action('HomeController@index'), __('home.home'), ['icon' => 'fa fas fa-tachometer-alt', 'active' => request()->segment(1) == 'home'])->order(5);

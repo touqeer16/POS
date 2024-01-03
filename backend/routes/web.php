@@ -15,17 +15,15 @@ use Illuminate\Support\Facades\Route;
 |
  */
 
-Route::get('/random', function () {
-    return view("superadmin::subscription.index");
-});
-
+/* Route::get('/random', function () {
+return view("superadmin::subscription.index");
+}); */
 
 Route::get('/test', function () {
 
     $a = Artisan::call('dump-autoload');
     return Artisan::output();
 });
-
 
 Route::get('/print/demo', 'PrintController@demo');
 Route::get('/print/test', 'PrintController@test');
@@ -429,7 +427,7 @@ Route::middleware(['setData', 'auth', 'SetSessionData', 'language', 'timezone', 
 
     Route::post('upload-module', 'Install\ModulesController@uploadModule');
     Route::resource('manage-modules', 'Install\ModulesController')
-        ->only(['index', 'destroy', 'update']);
+        ->only(['index', 'destroy', 'update'])->parameters(['manage-modules' => 'module_name']);
     Route::resource('warranties', 'WarrantyController');
 
     Route::resource('dashboard-configurator', 'DashboardConfiguratorController')
