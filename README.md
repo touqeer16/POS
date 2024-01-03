@@ -1,4 +1,4 @@
 Uncomment PHP extension:
-gd
-sodium
-zip
+gd.
+sodium.
+zip.
